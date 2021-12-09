@@ -1,0 +1,6 @@
+{
+    "user_id":{"S":"1"},
+    "time":{"N":"1639083790"},
+    "content":{"S":"my content"},
+    "title":{"S":"titulo"}
+}
