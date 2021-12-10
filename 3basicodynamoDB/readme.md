@@ -29,3 +29,23 @@
 
 ### Filtrar por el user_id = A
 * `AWS-DynamoDB---The-Complete-Guide> aws dynamodb query --table-name prueba_table --key-condition-expression "user_id = :uid" --expression-attribute-value file://expression-attribute-values.json`
+
+### filtrar por dos parametros y mayor que
+* `aws dynamodb query --table-name prueba_table --key-condition-expression "user_id = :uid AND #t > :t" --expression-attribute-value file://expression-attribute-values.json --expression-attribute-names file://expression-attribute-names.json` 
+
+### tres parametros en el filtro
+
+* `aws dynamodb query --table-name prueba_table --key-condition-expression "user_id = :uid AND #t > :t" --expression-attribute-value file://expression-attribute-values.json --expression-attribute-names file://expression-attribute-names.json --filter-expression "cat = :cat"`
+
+### con la capacidad
+* `aws dynamodb query --table-name prueba_table --key-condition-expression "user_id = :uid AND #t > :t" --expression-attribute-value file://expression-attribute-values.json --expression-attribute-names file://expression-attribute-names.json --filter-expression "cat = :cat" --return-consumed-capacity INDEXES`
+
+### capacidad de lectura
+* ` aws dynamodb query --table-name prueba_table --key-condition-expression "user_id = :uid AND #t > :t" --expression-attribute-value file://expression-attribute-values.json --expression-attribute-names file://expression-attribute-names.json --filter-expression "cat = :cat" --return-consumed-capacity INDEXES --consistent-read`
+
+### trae todos los documentos
+* `aws dynamodb scan --table-name prueba_table`
+
+### friltrando por un paramentro
+* `aws dynamodb scan --table-name prueba_table --filter-expression "username 
+= :uname" --expression-attribute-values file://uname.json`
