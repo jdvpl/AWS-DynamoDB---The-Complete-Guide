@@ -24,7 +24,7 @@ const dynamoDb=new AWS.DynamoDB();
 
 // crear tabla
 dynamoDb.createTable({
-        TableName:"prueba_table1",
+        TableName:"td_notes_test",
         AttributeDefinitions:[
         {
             AttributeName: "user_id",

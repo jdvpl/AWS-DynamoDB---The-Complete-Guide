@@ -58,43 +58,43 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 // });
 
 // agregar varios datos delete y puts
-// docClient.batchWrite({
-//     RequestItems: {
-//         'prueba_table1': [
-//             {
-//                 DeleteRequest: {
-//                     Key: {
-//                         user_id: 'bb',
-//                         time: 2
-//                     }
-//                 }
-//             },
-//             {
-//                 PutRequest: {
-//                     Item: {
-//                         user_id: '11',
-//                         time: 1,
-//                         title: 'Title 11',
-//                         content: 'Content 11'
-//                     }
-//                 }
-//             },
-//             {
-//                 PutRequest: {
-//                     Item: {
-//                         user_id: '22',
-//                         time: 2,
-//                         title: 'Title 22',
-//                         content: 'Content 22'
-//                     }
-//                 }
-//             }
-//         ]
-//     }
-// }, (err, data)=>{
-//     if(err) {
-//         console.log(err);
-//     } else {
-//         console.log(data);
-//     }
-// });
+docClient.batchWrite({
+    RequestItems: {
+        'td_notes_test': [
+            {
+                DeleteRequest: {
+                    Key: {
+                        user_id: 'bb',
+                        time: 2
+                    }
+                }
+            },
+            {
+                PutRequest: {
+                    Item: {
+                        user_id: '11',
+                        time: 1,
+                        title: 'Title 11',
+                        content: 'Content 11'
+                    }
+                }
+            },
+            {
+                PutRequest: {
+                    Item: {
+                        user_id: '22',
+                        time: 2,
+                        title: 'Title 22',
+                        content: 'Content 22'
+                    }
+                }
+            }
+        ]
+    }
+}, (err, data)=>{
+    if(err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
