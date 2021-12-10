@@ -3,22 +3,20 @@ AWS.config.update({region:'us-east-1'});
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-docClient.put({
+docClient.update({
     TableName: 'prueba_table1',
-    Item: {
+    Key: {
         user_id: 'ABC',
-        time: 2,
-        title: 'last Title',
-        content: 'last Content'
+        time: 2
     },
-    ConditionExpression: '#t <> :t',
+    UpdateExpression: 'set #v = #v + :incr',
     ExpressionAttributeNames: {
-        '#t': 'time'
+        '#v': 'views'
     },
     ExpressionAttributeValues: {
-        ':t': 2
+        ':incr': 2
     }
-}, (err, data)=>{
+}, (err, data)=> {
     if(err) {
         console.log(err);
     } else {
